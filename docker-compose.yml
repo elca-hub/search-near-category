@@ -6,3 +6,5 @@ services:
       context: api
     ports:
       - "8080:80"
+    volumes:
+      - ./api/app:/app
