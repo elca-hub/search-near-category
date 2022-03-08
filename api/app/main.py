@@ -17,7 +17,7 @@ def read_root():
 
 @app.get("/data/create")
 def read_item(q: Optional[str] = None):
-    if q == None:
+    if q == None: # クエリがない場合
         q = '100'
     q = int(q)
     make_new_data('data.csv', q)
