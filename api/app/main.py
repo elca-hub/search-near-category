@@ -5,6 +5,8 @@ import csv
 
 from modules.make_new_data import make_new_data
 
+from modules.view_data import make_category
+
 app = FastAPI()
 
 
@@ -26,3 +28,8 @@ def get_data ():
             data = [row for row in reader]
         return data
     return {"data": get_csv_file()}
+
+@app.get("/data/category/create")
+def create_category ():
+    make_category()
+    return {"message": "success"}
