@@ -17,6 +17,8 @@ def read_root():
 
 @app.get("/data/create")
 def read_item(q: Optional[str] = None):
+    if q == None:
+        q = '100'
     q = int(q)
     make_new_data('data.csv', q)
 
