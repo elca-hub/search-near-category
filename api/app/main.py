@@ -33,3 +33,23 @@ def get_data ():
 def create_category ():
     make_category()
     return {"message": "success"}
+
+@app.get("/data/category/near/{id}")
+def get_near_category (id: str):
+    def get_caterogy_id (id): # カテゴリIDを取得
+        csv_file = 'modules/csv/res.csv'
+        res_array = []
+        for row in csv.reader(open(csv_file, 'r')):
+            if row[0] == id and row[1] != 'id':
+                res_array.append(row[1])
+        return res_array
+
+    def get_same_category (data_id_array):
+        csv_file = 'modules/csv/data.csv'
+        res_data = []
+        for row in csv.reader(open(csv_file, 'r')):
+            if row[0] in data_id_array:
+                res_data.append(row)
+        return res_data
+    
+    return {"res": get_same_category(get_caterogy_id(id))}
