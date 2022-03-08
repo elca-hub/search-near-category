@@ -12,9 +12,9 @@ def make_new_data (csv_file, num):
       append_data.append(i) # id
       append_data.append(randomname(10)) # name
       fun = random.randint(min_ran, max_ran)
-      sad = random.randint(min_ran, max_ran - fun)
-      imp = random.randint(fun, max_ran)
-      ang = random.randint(min_ran, max_ran - imp)
+      sad = random.randint(min_ran, max_ran)
+      imp = random.randint(min_ran, max_ran)
+      ang = random.randint(min_ran, max_ran)
       append_data.append(fun) # fun
       append_data.append(sad) # sad
       append_data.append(imp) # imp
