@@ -2,7 +2,6 @@ import pandas as pd
 import pylab
 from matplotlib import pyplot
 from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
 import numpy as np
 import csv
 
@@ -18,13 +17,9 @@ def make_category ():
   # ang
   df = pd.read_csv(csv_path, header=0, index_col=0, usecols=['id', 'fun', 'sad', 'imp', 'ang'])
 
-  # 主成分分析
-  pca = PCA(n_components=2)
-  pca.fit(df)
-
-  # k-means++でクラスタリング
+  # クラスタリング
   kmeans = KMeans(n_clusters=5, init="k-means++")
-  kmeans.fit(pca.transform(df))
+  kmeans.fit(df)
 
   # クラスタリング結果を配列に格納
   labels = kmeans.labels_
