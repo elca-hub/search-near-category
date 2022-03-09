@@ -1,6 +1,4 @@
 import pandas as pd
-import pylab
-from matplotlib import pyplot
 from sklearn.cluster import KMeans
 import numpy as np
 import csv
